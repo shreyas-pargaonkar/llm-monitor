@@ -1,22 +1,18 @@
 "use client";
 
-import { useMemo, useState } from 'react';
-import { DateRangeOption } from '@/lib/types';
+import { useMemo } from 'react';
 import { generateMockDashboardData } from '@/lib/mock-data';
 import { DashboardHeader } from '@/components/dashboard/header';
-import { DateRangeSelector } from '@/components/dashboard/date-range-selector';
 import { MetricsSummary } from '@/components/dashboard/metrics-summary';
 import { TokenUsageChart } from '@/components/dashboard/token-usage-chart';
 import { CostBreakdown } from '@/components/dashboard/cost-breakdown';
 import { ModelStats } from '@/components/dashboard/model-stats';
 
 export default function DashboardPage() {
-  const [selectedDateRange, setSelectedDateRange] = useState<DateRangeOption>('30d');
-
-  // Generate mock data based on selected date range
+  // Generate mock data for last 30 days
   const dashboardData = useMemo(() => {
-    return generateMockDashboardData(selectedDateRange);
-  }, [selectedDateRange]);
+    return generateMockDashboardData('30d');
+  }, []);
 
   return (
     <div className="min-h-screen bg-zinc-50">
@@ -25,10 +21,7 @@ export default function DashboardPage() {
           title="LLM Token Consumption"
           dateRange={dashboardData.metrics.dateRange}
         >
-          <DateRangeSelector
-            value={selectedDateRange}
-            onChange={setSelectedDateRange}
-          />
+          <div className="w-[180px]"></div>
         </DashboardHeader>
 
         <div className="mt-8 space-y-6">
