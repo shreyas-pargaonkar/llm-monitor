@@ -13,8 +13,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Acme - Modern Project Management",
-  description: "Streamline your workflow with our intuitive project management platform",
+  title: "LLM Token Monitor - Track Usage & Costs",
+  description: "Comprehensive monitoring dashboard for tracking LLM token consumption, costs, and usage analytics across GPT-4, Claude, and other AI models",
 };
 
 export default function RootLayout({
